@@ -64,11 +64,11 @@ function filaVacunacion(boton) {
         alert("El nombre no puede estar vacío.");
         input.value = "";
     } else {
-        let resultado = aniadirPaciente(boton, nombre);
+        let resultado = aniadirPaciente(boton, nombre); // Envía los valores de boton y nombre como paramétros para la función auxiliar
         contenedor.classList.remove("d-none");
-        resultadoEspacio.innerHTML = "";
-        for (let i = 0; i < resultado.length; i++) {
-            resultadoEspacio.innerHTML += `<li>${resultado[i]}</li>`
+        resultadoEspacio.innerHTML = ""; // Vacía el listado del HTML para que no se dupliquen los nombres
+        for (let i = 0; i < resultado.length; i++) { // Bucle para recorrer toda la lista de pacientes
+            resultadoEspacio.innerHTML += `<li>${resultado[i]}</li>` // Añade una etiqueta li con el nombre del paciente según el index
         };
         input.value = "";
     };
