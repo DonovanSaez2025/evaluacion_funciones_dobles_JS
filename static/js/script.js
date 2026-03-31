@@ -26,7 +26,7 @@ function pagoPermiso() {
     const resultadoEspacio = document.getElementById("resultado1");
     let monto = parseFloat(input.value);
 
-    if (isNaN(monto) || monto < 1) { // Verifica que el monto sea un número y no sea menor a 1
+    if (isNaN(monto) || monto < 0.1) { // Verifica que el monto sea un número y no sea menor a 0.1
         alert("Ingrese valores válidos.");
     } else {
         let resultado = calculoDescuento(monto); // Llama a la función auxiliar para calcular el descuento
