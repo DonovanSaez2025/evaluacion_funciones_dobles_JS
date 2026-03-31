@@ -8,7 +8,7 @@
 /* Se controla el tamaño máximo del contenedor para que los elementos no toquen
 directamente los bordes de la pantalla */
 .container-fluid {
-    max-width: 1280px;
+    max-width: 900px;
 }
 
 /* Se separa el "style" de la etiqueta HTML de la clase card para incluirla en el documento CSS */

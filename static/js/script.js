@@ -23,13 +23,12 @@ function pagoPermiso() {
 
     if (isNaN(monto) || monto < 1) { // Verifica que el monto sea un número y no sea menor a 1
         alert("Ingrese valores válidos.");
-        input.value = "";
     } else {
-        let resultado = calculoDescuento(monto); /* Llama a la función auxiliar para calcular el descuento */
+        let resultado = calculoDescuento(monto); // Llama a la función auxiliar para calcular el descuento
         contenedor.classList.remove("d-none");
         resultadoEspacio.textContent = `El total a pagar es de ${resultado}$`;
-        input.value = "";
     };
+    input.value = "";
 };
 
 /*2. Módulo de Salud: Fila de Vacunación (Arreglos y Prioridad)
@@ -41,7 +40,7 @@ Regla: El resultado debe mostrarse como una lista ordenada en el HTML. <ol>*/
 // Se declara la variable listaPacientes fuera de las funciones para que el valor se quede guardado
 let listaPacientes = [];
 
-// Función auxiliar
+// Función auxiliar del ejercicio 2
 function aniadirPaciente(boton, nombre) {
     if (boton.textContent === "Paciente normal") { /* Verifica que el paciente sea uno normal */
         listaPacientes.push(nombre);
@@ -53,7 +52,7 @@ function aniadirPaciente(boton, nombre) {
     return listaPacientes; // Retorna la lista de pacientes
 };
 
-// Función principal
+// Función principal del ejercicio 2
 function filaVacunacion(boton) {
     let input = document.getElementById("input2");
     const contenedor = document.getElementById("resultado-contendor2");
@@ -62,7 +61,6 @@ function filaVacunacion(boton) {
 
     if (nombre == "") { // Verifica que el nombre no esté vacío
         alert("El nombre no puede estar vacío.");
-        input.value = "";
     } else {
         let resultado = aniadirPaciente(boton, nombre); // Envía los valores de boton y nombre como paramétros para la función auxiliar
         contenedor.classList.remove("d-none");
@@ -70,11 +68,50 @@ function filaVacunacion(boton) {
         for (let i = 0; i < resultado.length; i++) { // Bucle para recorrer toda la lista de pacientes
             resultadoEspacio.innerHTML += `<li>${resultado[i]}</li>` // Añade una etiqueta li con el nombre del paciente según el index
         };
-        input.value = "";
     };
+    input.value = "";
 };
 
 /*3. Módulo de Subsidios: Buscador de Beneficiarios (Ciclos e If)
 Verificar si un RUT o nombre está en el listado de entrega de beneficios.
 Lógica: Tener un arreglo con al menos 6 nombres. Usar un ciclo for para buscar si el dato ingresado existe en la lista.
 Regla: La función debe devolver "Beneficiario Verificado" o "No registrado".*/
+
+// Variable que incluye los ruts y nombres de los beneficiados
+let entregaBeneficios = [
+    ["228466594", "Mariano"],
+    ["225494751", "Luisarda"],
+    ["22874932k", "Rigoberto"],
+    ["225652354", "Carlos"],
+    ["229815614", "Catalino"],
+    ["221058361", "Matías"]
+];
+
+// Función auxiliar del ejercicio 3
+function verificarBeneficio(user) {
+    for (let i = 0; i < entregaBeneficios.length; i++) {
+        for (let j = 0; j < entregaBeneficios[i].length; j++) {
+            if (entregaBeneficios[i][j].includes(user)) {
+                return `${entregaBeneficios[i][1]} es un beneficiario verificado.`;
+            };
+        };
+    };
+    return `${user} no está registrado.`;
+};
+
+// Función principal del ejercicio 3
+function buscarBeneficiario() {
+    let input = document.getElementById("input3");
+    const contenedor = document.getElementById("resultado-contendor3");
+    const resultadoEspacio = document.getElementById("resultado3");
+    let user = input.value.trim();
+    
+    if (user === "") { // Verificar que valor ingresado no esté vacío
+        alert("No puede estar vacío.");
+    } else {
+        let resultado = verificarBeneficio(user); // Declara la variable resultado, llamando
+        resultadoEspacio.textContent = resultado;
+        contenedor.classList.remove("d-none");
+    };
+    input.value = "";
+};

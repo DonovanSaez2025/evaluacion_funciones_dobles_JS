@@ -31,8 +31,8 @@
                     <h2 class="card-title">Módulo de Tesorería: Pago de Permisos</h2>
                     <p class="card-text">El vecino ingresa el monto de su permiso de circulación para saber cuánto
                         pagará tras el descuento municipal.</p>
-                    <input type="text" id="input1" placeholder="Ingresa un monto" class="mb-3">
-                    <button class="btn btn-warning" onclick="pagoPermiso()">Calcular descuento</button>
+                    <input type="text" id="input1" placeholder="Ingresa un monto" class="mb-3 p-1 rounded">
+                    <button class="btn btn-info" onclick="pagoPermiso()">Calcular descuento</button>
                     <div class="mt-3 d-none" id="resultado-contendor1">
                         <div id="resultado1" class="border rounded border-black p-2"></div>
                     </div>
@@ -44,13 +44,26 @@
                 <div class="card-body">
                     <h2 class="card-title">Módulo de Salud: Fila de Vacunación</h2>
                     <p class="card-text">Gestión de nombres en la fila de espera del consultorio local.</p>
-                    <input type="text" id="input2" placeholder="Nombre del paciente" class="mb-3">
-                    <button id="normal" class="btn btn-warning mb-3" onclick="filaVacunacion(this)">Paciente normal</button>
-                    <button id="urgencia" class="btn btn-danger" onclick="filaVacunacion(this)">Paciente urgente</button>
+                    <input type="text" id="input2" placeholder="Nombre del paciente" class="mb-3 p-1 rounded">
+                    <button class="btn btn-warning mb-3" onclick="filaVacunacion(this)">Paciente normal</button>
+                    <button class="btn btn-danger" onclick="filaVacunacion(this)">Paciente urgente</button>
                     <div class="mt-3 d-none " id="resultado-contendor2">
                         <p class="card-text">Lista de pacientes:</p>
                         <ol id="resultado2" class="px-4 border rounded border-black p-2">
                         </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Módulo de Subsidios: Buscador de Beneficiarios</h2>
+                    <p class="card-text">Verificar si un RUT o nombre está en el listado de entrega de beneficios.</p>
+                    <input type="text" id="input3" placeholder="Ingresa un nombre o rut" class="mb-3 p-1 rounded">
+                    <button class="btn btn-warning mb-3" onclick="buscarBeneficiario()">Buscar beneficiario</button>
+                    <div class="mt-3 d-none " id="resultado-contendor3">
+                        <div id="resultado3" class="border rounded border-black p-2"></div>
                     </div>
                 </div>
             </div>
