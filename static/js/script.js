@@ -91,7 +91,7 @@ let entregaBeneficios = [
 function verificarBeneficio(user) {
     for (let i = 0; i < entregaBeneficios.length; i++) {
         for (let j = 0; j < entregaBeneficios[i].length; j++) {
-            if (entregaBeneficios[i][j].includes(user)) {
+            if (entregaBeneficios[i][j] === user) {
                 return `${entregaBeneficios[i][1]} es un beneficiario verificado.`;
             };
         };
@@ -109,7 +109,7 @@ function buscarBeneficiario() {
     if (user === "") { // Verificar que valor ingresado no esté vacío
         alert("No puede estar vacío.");
     } else {
-        let resultado = verificarBeneficio(user); // Declara la variable resultado, llamando
+        let resultado = verificarBeneficio(user); // Declara la variable resultado, llamando a la función verificarBeneficio enviando el valor de la variable user para el parámetro
         resultadoEspacio.textContent = resultado;
         contenedor.classList.remove("d-none");
     };
