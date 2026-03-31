@@ -18,7 +18,7 @@ function calculoDescuento(monto) {
 }
 ;
 /* Función principal del ejercicio 1:
-Recibe el valor del input(el monto), verifica que sea un número y no sea menor a 1, y llama a la función
+Recibe el valor del input(el monto), verifica que sea un número y no sea menor a 0.2, y llama a la función
 auxiliar para hacer el calculo del descuento, posteriormente lo imprime en el documento HMTL. */
 function pagoPermiso() {
     let input = document.getElementById("input1");
@@ -26,7 +26,7 @@ function pagoPermiso() {
     const resultadoEspacio = document.getElementById("resultado1");
     let monto = parseFloat(input.value);
 
-    if (isNaN(monto) || monto < 0.1) { // Verifica que el monto sea un número y no sea menor a 0.1
+    if (isNaN(monto) || monto < 0.2) { // Verifica que el monto sea un número y no sea menor a 0.2
         alert("Ingrese valores válidos.");
     } else {
         let resultado = calculoDescuento(monto); // Llama a la función auxiliar para calcular el descuento
