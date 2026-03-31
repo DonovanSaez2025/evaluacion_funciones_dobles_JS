@@ -58,7 +58,6 @@ function filaVacunacion(boton) {
     let input = document.getElementById("input2");
     const contenedor = document.getElementById("resultado-contendor2");
     const resultadoEspacio = document.getElementById("resultado2");
-    const listadoPacientes = document.getElementById("listado-pacientes");
     let nombre = input.value.trim();
 
     if (nombre == "") { // Verifica que el nombre no esté vacío
@@ -67,10 +66,15 @@ function filaVacunacion(boton) {
     } else {
         let resultado = aniadirPaciente(boton, nombre);
         contenedor.classList.remove("d-none");
-        resultadoEspacio.textContent = `Lista de pacientes:`;
-        for (let i = 0; i <= listaPacientes.length; i++) {
-            listadoPacientes.innerHTML += `<li>${listaPacientes[i]}</li>`
-        }
+        resultadoEspacio.innerHTML = "";
+        for (let i = 0; i < resultado.length; i++) {
+            resultadoEspacio.innerHTML += `<li>${resultado[i]}</li>`
+        };
         input.value = "";
     };
 };
+
+/*3. Módulo de Subsidios: Buscador de Beneficiarios (Ciclos e If)
+Verificar si un RUT o nombre está en el listado de entrega de beneficios.
+Lógica: Tener un arreglo con al menos 6 nombres. Usar un ciclo for para buscar si el dato ingresado existe en la lista.
+Regla: La función debe devolver "Beneficiario Verificado" o "No registrado".*/
