@@ -100,18 +100,18 @@ let entregaBeneficios = [
 ];
 
 /* Función auxiliar del ejercicio 3:
-Obtiene el valor user de la función principal, luego con doble ciclo for, recorre cada item del listado,
-y si el nombre ingresado concuerda con uno de los datos, se retornará que el user está verificado y
-forzará a terminar la función, si no concuerda con ningún dato, se retornará que el user no está registrado*/
-function verificarBeneficio(user) {
+Obtiene el valor persona de la función principal, luego con doble ciclo for, recorre cada item del listado,
+y si el nombre ingresado concuerda con uno de los datos, se retornará que el persona está verificado y
+forzará a terminar la función, si no concuerda con ningún dato, se retornará que el persona no está registrado*/
+function verificarBeneficio(persona) {
     for (let i = 0; i < entregaBeneficios.length; i++) {
         for (let j = 0; j < entregaBeneficios[i].length; j++) {
-            if (entregaBeneficios[i][j] == user) {
+            if (entregaBeneficios[i][j] == persona) {
                 return `${entregaBeneficios[i][1]} es un beneficiario verificado.`;
             };
         };
     };
-    return `${user} no está registrado.`;
+    return `${persona} no está registrado.`;
 };
 
 /* Función principal del ejercicio 3:
@@ -122,12 +122,12 @@ function buscarBeneficiario() {
     let input = document.getElementById("input3");
     const contenedor = document.getElementById("resultado-contendor3");
     const resultadoEspacio = document.getElementById("resultado3");
-    let user = input.value.trim();
+    let persona = input.value.trim();
     
-    if (user === "") { // Verificar que valor ingresado no esté vacío
+    if (persona === "") { // Verificar que valor ingresado no esté vacío
         alert("No puede estar vacío.");
     } else {
-        let resultado = verificarBeneficio(user); // Declara la variable resultado, llamando a la función verificarBeneficio enviando el valor de la variable user para el parámetro
+        let resultado = verificarBeneficio(persona); // Declara la variable resultado, llamando a la función verificarBeneficio enviando el valor de la variable persona para el parámetro
         resultadoEspacio.textContent = resultado;
         contenedor.classList.remove("d-none");
     };

@@ -8,7 +8,7 @@
 ## Descripción
 A continuación se mostrará una explicación para lo que hace cada función del documento JS.
 
-### Función principal: pagoPermiso():
+### Función principal 1: pagoPermiso():
 - Declara la variable *input* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *contenedor* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *resultadoEspacio* cuyo valor será obtenido del documento HTML según su ID.
@@ -20,7 +20,7 @@ A continuación se mostrará una explicación para lo que hace cada función del
 - - Cambia el contenido textual del *resultadoEspacio* para mostrar cuál es el monto total a pagar (el monto total será el valor de *resultado*).
 - Vacía el valor del *input*.
 
-### Función auxiliar: calculoDescuento(monto):
+### Función auxiliar 1: calculoDescuento(monto):
 - El valor del parámetro *monto* es enviado desde la función principal.
 - Declara la variable *descuentoMonto* para guardar el 15% o el 5% del *monto* ingresado.
 - Comprueba si es que el *monto* es mayor o igual a 70000.
@@ -28,13 +28,13 @@ A continuación se mostrará una explicación para lo que hace cada función del
 - - SI no se cumple, solo se obtendrá el 5% del *monto* multiplicando el monto * 0.05, y el resultado se guardará en la variable *descuentoMonto*.
 - Luego retorna el resultado del *monto* menos el *descuentoMonto* para la función principal.
 
-### Función principal: filaVacunacion(boton):
-- Fuera de la función, se declara la variable *listaPacientes* cuyo valor es una lista vacía "[]".
+### Función principal 2: filaVacunacion(boton):
+- Fuera de la función para que el valor no se reinicie en cada ejecución de la función, se declara la variable *listaPacientes* cuyo valor es una lista vacía "[]".
 - El parámetro *boton* se obtiene del botón que llamó a la función con onclick.
 - Declara la variable *input* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *contenedor* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *resultadoEspacio* cuyo valor será obtenido del documento HTML según su ID.
-- Declara la variable *nombre* y se le asigna el valor del *input* con espacios exteriores (antes y después del texto) borrados.
+- Declara la variable *nombre* y se le asigna el valor del *input* con espacios exteriores (antes y después del texto) borrados usando .trim()
 - Declara la variable *tipoBoton* y se le asigna el contenido textual del *boton*.
 - Comprueba si es que el *nombre* está vacío.
 - - Si se cumple, enviará una advertencia de que el nombre no puede estar vacío.
@@ -45,11 +45,24 @@ A continuación se mostrará una explicación para lo que hace cada función del
 - - En cada iteración se le concatenará al HTML interno de *resultadoEspacio*, una etiqueta li con cada valor en *listaPacientes* dentro.
 - Vacía el valor del *input*.
 
-### Función auxiliar: aniadirPaciente(tipoBoton, nombre):
+### Función auxiliar 2: aniadirPaciente(tipoBoton, nombre):
+- El valor de los parámetros *tipoBoton* y *nombre* serán enviados desde la función principal.
+- Se verifica si el valor de *tipoBoton* es estrictamente igual a "Paciente normal".
+- - Si se cumple, añadirá el valor de *nombre* al final de la lista de *listaPacientes* con un .push()
+- - Si no, se verifica que el valor de *tipoBoton* sea estrictamente igual a "Paciente urgente". Si s e cumple, añadirá el valor de *nombre* al inicio de la lista de *listaPacientes* con un .unshift()
+- - Si nada se cumple, enviará una alerta diciendo que ocurrió un error inesperado.
+- Retorna la variable *listaPacientes* para la función principal.
 
-### Función principal: buscarBeneficiario():
+### Función principal 3: buscarBeneficiario():
 - Declara la variable *input* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *contenedor* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *resultadoEspacio* cuyo valor será obtenido del documento HTML según su ID.
+- Declara la variable *persona* y se le asignará el valor de input con los espacios exteriores borrados usando .trim()
+- Comprueba si es que el *persona* está vacío.
+- - Si se cumple, enviará una advertencia de que el nombre no puede estar vacío.
+- - Si no se cumple, declara la variable *resultado* y llamará a la función auxiliar **verificarBeneficio(persona)** y enviará la variable *persona* para su parámetro.
+- - Cambia el contenido textual de *resultadoEspacio* por el valor de *resultado*.
+- - Removerá la clase "d-none" de la constante *contenedor* para que el resultado deje de ser invisible.
+- Vacía el valor del *input*.
 
-### Función auxiliar: verificarBeneficio(user):
+### Función auxiliar 3: verificarBeneficio(persona):
