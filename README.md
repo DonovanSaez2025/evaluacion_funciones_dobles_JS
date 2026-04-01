@@ -49,11 +49,13 @@ A continuación se mostrará una explicación para lo que hace cada función del
 - El valor de los parámetros *tipoBoton* y *nombre* serán enviados desde la función principal.
 - Se verifica si el valor de *tipoBoton* es estrictamente igual a "Paciente normal".
 - - Si se cumple, añadirá el valor de *nombre* al final de la lista de *listaPacientes* con un .push()
-- - Si no, se verifica que el valor de *tipoBoton* sea estrictamente igual a "Paciente urgente". Si s e cumple, añadirá el valor de *nombre* al inicio de la lista de *listaPacientes* con un .unshift()
+- - Si no, se verifica que el valor de *tipoBoton* sea estrictamente igual a "Paciente urgente".
+- - - Si se cumple, añadirá el valor de *nombre* al inicio de la lista de *listaPacientes* con un .unshift()
 - - Si nada se cumple, enviará una alerta diciendo que ocurrió un error inesperado.
 - Retorna la variable *listaPacientes* para la función principal.
 
 ### Función principal 3: buscarBeneficiario():
+- Fuera de la función, se declara la variable *entregaBeneficios* cuyo valor es una lista con seis sublistas que contienen el rut y el nombre de cada persona registrada.
 - Declara la variable *input* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *contenedor* cuyo valor será obtenido del documento HTML según su ID.
 - Declara la constante *resultadoEspacio* cuyo valor será obtenido del documento HTML según su ID.
@@ -66,3 +68,9 @@ A continuación se mostrará una explicación para lo que hace cada función del
 - Vacía el valor del *input*.
 
 ### Función auxiliar 3: verificarBeneficio(persona):
+- El valor del parámetro *persona* es enviado desde la función principal.
+- Crea un bucle for donde se declara la variable *i* cuyo valor será 0, verificará en cada iteración que *i* sea menor a la longitud de *entregaBeneficios*, y sumará 1 al *i*.
+- - Crea un bucle for donde se declara la variable *j* cuyo valor será 0, verificará en cada iteración que *j* sea menor a la longitud del item indicado por *i* de *entregaBeneficios* (*i* < entregaBeneficios[i].length), y sumará 1 al *j*.
+- - - Verifica si es que el valor de *persona* sea igual con uno de los valores guardado en *entregaBeneficios* (*persona* === entregaBeneficios[i][j])
+- - - Si se cumple, retornará un string diciendo que el nombre de la *persona* es un beneficiario vereficado.
+- Si el valor de la *persona* nunca es igual, retornará un string diciendo que la *persona* no está registrada.
