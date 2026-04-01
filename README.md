@@ -1,6 +1,8 @@
 # Evaluación JS con funciones dobles
 **Autores**: Donovan Sáez y Krishna Lopez
 
+**Curso**: 4°C
+
 **Contactos**: 
 - donovansaez@liceovvh.cl
 - krishnalopez@liceovvh.cl
